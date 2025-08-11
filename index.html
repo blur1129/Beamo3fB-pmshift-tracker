@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>PB Video Uploader</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .file-info {
+      background: #222;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 10px;
+      width: 80%;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .file-info.checked {
+      background-color: #016d65;
+    }
+
+    #drop-area {
+      border: 3px dashed #888;
+      padding: 200px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      background: #0af;
+    }
+
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      background: #555;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    input,
+    select {
+      margin: 5px;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .top-right {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .top-left {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .icon-btn {
+      background: transparent;
+      font-size: 18px;
+      margin-left: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1><span style="font-weight: bold; font-size: 24px; color: #0af">BEAMO 3F-B PM Shift<p></p></span> Submission Tracker
+    Tool
+  </h1>
+
+  <div>
+    <input type="text" id="gameAssigned" placeholder="Game Title" />
+
+    <label for="fullName">Full Name:</label>
+    <select id="fullName">
+      <option value="">-- Choose --</option>
+      <option value="Estoque, Blair B.">Estoque, Blair B.</option>
+      <option value="Cagumbay, Lester P.">Cagumbay, Lester P.</option>
+      <option value="Alima, Chlois Erika">Alima, Chlois Erika</option>
+      <option value="Dela Cruz, Kent Ariel D.">Dela Cruz, Kent Ariel D.</option>
+      <option value="Obenieta, Ashmandeo E">Obenieta, Ashmandeo E</option>
+      <option value="Cabalang, Krisha Nicole C.">Cabalang, Krisha Nicole C.</option>
+      <option value="Bacor, Michael Angelo S.">Bacor, Michael Angelo S.</option>
+      <option value="Lanaja, Rafael Rajy">Lanaja, Rafael Rajy</option>
+      <option value="Barao, Romualdo B. Iii">Barao, Romualdo B. Iii</option>
+      <option value="Sialana, Jilord P.">Sialana, Jilord P.</option>
+      <option value="Aspera, Jon Bowen M.">Aspera, Jon Bowen M.</option>
+      <option value="Taneo, Sean Devon E.">Taneo, Sean Devon E.</option>
+      <option value="Añasco, Michael Laurence R.">Añasco, Michael Laurence R.</option>
+      <option value="Maygay, Christian Earl">Maygay, Christian Earl</option>
+      <option value="Dela Cerna, Rizzah Daniella">Dela Cerna, Rizzah Daniella</option>
+      <option value="Macatual, Jessie James S.">Macatual, Jessie James S.</option>
+      <option value="Quillope, Jericho B.">Quillope, Jericho B.</option>
+      <option value="Berong, Ibor">Berong, Ibor</option>
+      <option value="Galon, Romualdo Jr P.">Galon, Romualdo Jr P.</option>
+      <option value="Fortis, Paul John">Fortis, Paul John</option>
+      <option value="Collados, Andy B.">Collados, Andy B.</option>
+      <option value="Serato, Jason">Serato, Jason</option>
+      <option value="Tapic, Mark Anthony M.">Tapic, Mark Anthony M.</option>
+      <option value="Carrido, Eddieberto G.">Carrido, Eddieberto G.</option>
+      <option value="Felisilda, Rachel S.">Felisilda, Rachel S.</option>
+      <option value="Lumandong, Klint Christian">Lumandong, Klint Christian</option>
+      <option value="Alfeche, Angelo J.">Alfeche, Angelo J.</option>
+      <option value="Abanes, Rene Queen D.">Abanes, Rene Queen D.</option>
+      <option value="Caberte, Princess Sean D.">Caberte, Princess Sean D.</option>
+      <option value="Gamali, Jericho J.">Gamali, Jericho J.</option>
+      <option value="Mipranum, Ivy G.">Mipranum, Ivy G.</option>
+      <option value="Rom, John Mark M.">Rom, John Mark M.</option>
+      <option value="Sarceno, Niel Jann">Sarceno, Niel Jann</option>
+      <option value="Tadlas, Patrick Josenn">Tadlas, Patrick Josenn</option>
+      <option value="Cabasa, Keith Cyril S.">Cabasa, Keith Cyril S.</option>
+      <option value="Daculos, Mary Cate Claire R.">Daculos, Mary Cate Claire R.</option>
+      <option value="Catunao, Janine Rochel P.">Catunao, Janine Rochel P.</option>
+      <option value="Hamili, Trisha Ann E.">Hamili, Trisha Ann E.</option>
+      <option value="Gamolo, Mikko D.">Gamolo, Mikko D.</option>
+      <option value="Caja, Nicole John D.">Caja, Nicole John D.</option>
+      <option value="Tauto-An, Chrisha Mae A.">Tauto-An, Chrisha Mae A.</option>
+      <option value="Alalid, Kharla Jen">Alalid, Kharla Jen</option>
+      <option value="Galgo, Jannah Divine Trinity P.">Galgo, Jannah Divine Trinity P.</option>
+      <option value="Quiamco, Jela Lephtel R.">Quiamco, Jela Lephtel R.</option>
+      <option value="Bombeo, Christopher C.">Bombeo, Christopher C.</option>
+      <option value="Labis, Ernie B.">Labis, Ernie B.</option>
+      <option value="Marzan, Jan Pril">Marzan, Jan Pril</option>
+
+
+    </select>
+
+    <label for="outlierEmail">Outlier Email:</label>
+    <select id="outlierEmail">
+      <option value="">-- Choose --</option>
+      <option value="blair.estoque19@gmail.com+outlier">blair.estoque19@gmail.com+outlier</option>
+      <option value="cagumbaylester301@gmail.com+outlier">cagumbaylester301@gmail.com+outlier</option>
+      <option value="chloiserikaa@gmail.com+outlier">chloiserikaa@gmail.com+outlier</option>
+      <option value="kentdc48@gmail.com+outlier">kentdc48@gmail.com+outlier</option>
+      <option value="obenietaashman001@gmail.com+outlier">obenietaashman001@gmail.com+outlier</option>
+      <option value="krishanicolecabalang14@gmail.com+outlier">krishanicolecabalang14@gmail.com+outlier</option>
+      <option value="bacorangelo6@gmail.com+outlier">bacorangelo6@gmail.com+outlier</option>
+      <option value="rrlanaja78@gmail.com+outlier">rrlanaja78@gmail.com+outlier</option>
+      <option value="romualdobarao@gmail.com+outlier">romualdobarao@gmail.com+outlier</option>
+      <option value="sialanajilord@gmail.com+outlier">sialanajilord@gmail.com+outlier</option>
+      <option value="asperajon@gmail.com+outlier">asperajon@gmail.com+outlier</option>
+      <option value="seantaneo@gmail.com+outlier">seantaneo@gmail.com+outlier</option>
+      <option value="ezekieljan67@gmail.com+outlier">ezekieljan67@gmail.com+outlier</option>
+      <option value="chan.maygay420@gmail.com+outlier">chan.maygay420@gmail.com+outlier</option>
+      <option value="kkng3210@gmail.com+outlier">kkng3210@gmail.com+outlier</option>
+      <option value="jessiejamesmacatual@gmail.com+outlier">jessiejamesmacatual@gmail.com+outlier</option>
+      <option value="jerichobonotan@gmail.com+outlier">jerichobonotan@gmail.com+outlier</option>
+      <option value="rootlessjil@gmail.com+outlier">rootlessjil@gmail.com+outlier</option>
+      <option value="romualdogalon@gmail.com+outlier">romualdogalon@gmail.com+outlier</option>
+      <option value="pauljohnfortis@gmail.com+outlier">pauljohnfortis@gmail.com+outlier</option>
+      <option value="ramburning1@gmail.com+outlier">ramburning1@gmail.com+outlier</option>
+      <option value="anzonhian@gmail.com+outlier">anzonhian@gmail.com+outlier</option>
+      <option value="athenab00114@gmail.com+outlier">athenab00114@gmail.com+outlier</option>
+      <option value="egc.eddcarrido@gmail.com+outlier">egc.eddcarrido@gmail.com+outlier</option>
+      <option value="felisildaache@gmail.com+outlier">felisildaache@gmail.com+outlier</option>
+      <option value="lumandongklintchristian@gmail.com+outlier">lumandongklintchristian@gmail.com+outlier</option>
+      <option value="alfecheangelo77@gmail.com+outlier">alfecheangelo77@gmail.com+outlier</option>
+      <option value="abanesrenequeen@gmail.com+outlier">abanesrenequeen@gmail.com+outlier</option>
+      <option value="cabertesean@gmail.com+outlier">cabertesean@gmail.com+outlier</option>
+      <option value="jerichogamali1@gmail.com+outlier">jerichogamali1@gmail.com+outlier</option>
+      <option value="mipranum.ivy429@gmail.com+outlier">mipranum.ivy429@gmail.com+outlier</option>
+      <option value="johnmarkrom4@gmail.com+outlier">johnmarkrom4@gmail.com+outlier</option>
+      <option value="sarcenonieljann@gmail.com+outlier">sarcenonieljann@gmail.com+outlier</option>
+      <option value="goyongbarok@gmail.com+outlier">goyongbarok@gmail.com+outlier</option>
+      <option value="cabasakc@gmail.com+outlier">cabasakc@gmail.com+outlier</option>
+      <option value="marycatedaculos@gmail.com+outlier">marycatedaculos@gmail.com+outlier</option>
+      <option value="catunaojanine@gmail.com+outlier">catunaojanine@gmail.com+outlier</option>
+      <option value="hamili.trishaann16@gmail.com+outlier">hamili.trishaann16@gmail.com+outlier</option>
+      <option value="mikkogamolo2@gmail.com+outlier">mikkogamolo2@gmail.com+outlier</option>
+      <option value="caja.nicolejohn@gmail.com+outlier">caja.nicolejohn@gmail.com+outlier</option>
+      <option value="tautoanchrishamae56@gmail.com+outlier">tautoanchrishamae56@gmail.com+outlier</option>
+      <option value="kharla.alalid27@gmail.com+outlier">kharla.alalid27@gmail.com+outlier</option>
+      <option value="jannnahdivine@gmail.com+outlier">jannnahdivine@gmail.com+outlier</option>
+      <option value="quiamcojela@gmail.com+outlier">quiamcojela@gmail.com+outlier</option>
+      <option value="christopherbombeo05@gmail.com+outlier">christopherbombeo05@gmail.com+outlier</option>
+      <option value="abralabis09@gmail.com+outlier">abralabis09@gmail.com+outlier</option>
+      <option value="janprilmarzan4@gmail.com+outlier">janprilmarzan4@gmail.com+outlier</option>
+    </select>
+
+    <label for="room">Room Assignment:</label>
+    <select id="room">
+      <option value="Beamo 3F - B">Beamo 3F-B</option>
+    </select>
+
+    <label for="shift">Shift:</label>
+    <select id="shift">
+      <option value="PM">PM</option>
+    </select>
+
+    <label for="support">Support:</label>
+    <select id="support">
+      <option value="">-- Select Support --</option>
+      <option value="senarlo jr., miguel bersano">Senarlo Jr., Miguel Bersano</option>
+      <option value="trinidad, maureen may s.">Trinidad, Maureen May S.</option>
+    </select>
+
+
+    <label for="station-no">Seat No.:</label>
+    <select id="station-no">
+      <option value="">Choose</option>
+    </select>
+
+    <script>
+      // Fill Station Dropdown dynamically with default "Seat No. 1" selected
+      const stationSelect = document.getElementById('station-no');
+      for (let i = 1; i <= 50; i++) {
+        const option = document.createElement('option');
+        option.value = `Seat No. ${i}`;
+        option.text = `Seat No. ${i}`;
+        if (i === 1) option.selected = true; // prefill Seat No. 1
+        stationSelect.appendChild(option);
+      }
+    </script>
+    <p></p>
+    <p></p>
+    <p></p>
+
+
+    <div id="drop-area">
+      <p style="font-weight: bold; font-size: 24px; color:rgb(0, 0, 0);">Drag and drop your video files here</p>
+      <p style="font-weight: bold; font-size: 16px; color:rgb(0, 0, 0);">(You can drop multiple video files)</p>
+    </div>
+    <div id="file-list"></div>
+
+    <script>
+      let fileCounter = 0;
+
+      const dropArea = document.getElementById('drop-area');
+      const fileList = document.getElementById('file-list');
+
+      dropArea.addEventListener('dragover', e => {
+        e.preventDefault();
+        dropArea.style.borderColor = '#0af';
+      });
+
+      dropArea.addEventListener('dragleave', () => {
+        dropArea.style.borderColor = '#888';
+      });
+
+      dropArea.addEventListener('drop', e => {
+        e.preventDefault();
+        dropArea.style.borderColor = '#888';
+
+        [...e.dataTransfer.files].forEach(file => {
+          if (!file.type.startsWith('video/')) {
+            alert('Only video files allowed.');
+            return;
+          }
+
+          const video = document.createElement('video');
+          video.preload = 'metadata';
+          video.src = URL.createObjectURL(file);
+
+          video.onloadedmetadata = () => {
+            const duration = video.duration;
+            const durationStr = formatDuration(duration);
+            const fileSize = formatFileSize(file.size);
+
+            fileCounter++;
+            const div = document.createElement('div');
+            div.className = 'file-info';
+
+            div.innerHTML = `
+        <div class="top-left">#${fileCounter} - ${file.name}</div><br>
+        <div class="top-right">
+          <button class="icon-btn" onclick="toggleCheck(this)">✔️</button>
+          <button class="icon-btn" onclick="removeFile(this)">❌</button>
+        </div>
+         <p><strong>Video Length:</strong> ${durationStr} <strong>File Size (GB):</strong> ${fileSize}</p>
+        <input type="text" placeholder="Upload ID" class="upload-id">
+        <input type="text" placeholder="Task ID" class="task-id">
+        <input type="text" placeholder="Upload Time (HH:MM:SS)" class="upload-time" value="00:10:00"><button onclick="generateFormURL(this, '${file.name}', '${durationStr}', '${fileSize}')">📤 Transfer to Google Form</button><br>
+        
+      `;
+
+            fileList.appendChild(div);
+          };
+        });
+      });
+
+      function formatDuration(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${mins}:${secs}`;
+      }
+
+      function formatFileSize(bytes) {
+        return (bytes / (1024 ** 3)).toFixed(2); // GB
+      }
+
+      function toggleCheck(btn) {
+        const container = btn.closest('.file-info');
+        container.classList.toggle('checked');
+      }
+
+      function removeFile(btn) {
+        const container = btn.closest('.file-info');
+        container.remove();
+      }
+
+      function generateFormURL(button, fileName, durationStr, fileSize) {
+        const container = button.parentElement;
+
+        const gameAssigned = document.getElementById('gameAssigned').value;
+        const fullName = document.getElementById('fullName').value;
+        const outlierEmail = document.getElementById('outlierEmail').value;
+        const room = document.getElementById('room').value;
+        const shift = document.getElementById('shift').value;
+        const support = document.getElementById('support').value;
+        const stationNo = document.getElementById('station-no').value;
+
+        const uploadID = container.querySelector('.upload-id').value;
+        const taskID = container.querySelector('.task-id').value;
+        const uploadTime = container.querySelector('.upload-time').value;
+
+        const formURL = `https://docs.google.com/forms/d/e/1FAIpQLSeqfp4IQKR5F6EXGd2yRkkNsiKQ0h8iMAEO2oZbsyWvrW8Q9A/viewform?usp=pp_url` +
+          `&entry.1638364155=${encodeURIComponent(gameAssigned)}` +
+          `&entry.165084116=${encodeURIComponent(fullName)}` +
+          `&entry.141333561=${encodeURIComponent(outlierEmail)}` +
+          `&entry.1953828198=${encodeURIComponent(room)}` +
+          `&entry.1736528622=${encodeURIComponent(shift)}` +
+          `&entry.1043362472=${encodeURIComponent(support)}` +
+          `&entry.803718753=${encodeURIComponent(stationNo)}` + // ✅ Seat number
+          `&entry.XXXXX=${encodeURIComponent(fileName)}` +       // Replace with actual entry ID for File Name
+          `&entry.1282936396=${encodeURIComponent(durationStr)}` +
+          `&entry.1711007967=${encodeURIComponent(fileSize)}` +
+          `&entry.703081234=${encodeURIComponent(uploadID)}` +
+          `&entry.1433525718=${encodeURIComponent(taskID)}` +
+          `&entry.1831074472=${encodeURIComponent(uploadTime)}`;
+
+        window.open(formURL, '_blank');
+      }
+    </script>
+    <footer>
+      <p>*Please inform your support if your name or email is not on the list</p>
+
+    </footer>
+
+
+</body>
+
+</html>
